@@ -29,6 +29,7 @@ App<IAppOption>({
   globalData: {
     token: '',
     config: config,
+    innerAudioContext: null,    //message-right-voice组件音频播放初始化
   },
   request(args) {
     const request = {};

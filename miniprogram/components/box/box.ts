@@ -184,7 +184,10 @@ Component({
           })
       },
       onVoiceMessage(e) {
+        console.log("=======11111============")
           let msgList = this.data.msgList;
+        console.log("=======11111=msgList===========")
+        console.log(msgList)
           msgList.push({
               msgid:e.detail.msgid,
               //发送方
@@ -199,12 +202,15 @@ Component({
               isread: e.detail.isread,
               showTime:  e.detail.showTime
           })
+        console.log("===================")
+        console.log(msgList)
           this.setData({
               msgList,
           })
           this.setData({
               toView: 'msg_end_line',
           })
+
 
       },
   },
@@ -240,6 +246,8 @@ Component({
         head_img: info.image,
         toView: this.data.toView,
       });
+      //message-right-voice组件音频播放初始化
+      app.globalData.innerAudioContext=wx.createInnerAudioContext()
     }
   }
 })

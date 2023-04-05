@@ -18,7 +18,7 @@ Component({
     imgs: {
       yyxx: "/icons/sb.png",
     },
-    audioSrc: "" // 音频文件路径
+    audioSrc: "", // 音频文件路径
 
   },
 
@@ -31,15 +31,10 @@ Component({
      * 播放音频
      */
     playVoice: function (e){
-      var that = this;
-      this.setData({
-        audioSrc: that.data.right_item.voice
-      });
-      this.setData({
-        audioCtx: wx.createInnerAudioContext()
-      });
-      this.data.audioCtx.src = this.data.audioSrc;
-      this.data.audioCtx.play();
+      console.log(this)
+      console.log("this-------")
+      app.globalData.innerAudioContext.src = this.data.right_item.voice;
+      app.globalData.innerAudioContext.play();
     },
   },
 

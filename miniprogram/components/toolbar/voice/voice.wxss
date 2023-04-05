@@ -16,6 +16,7 @@
   z-index: 19;
   /*padding: 0 2vw;*/
   padding: 28rpx;
+  margin-bottom: 50px;
 }
 .inputVoice image {
   width: 7vw;

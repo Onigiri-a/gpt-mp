@@ -46,6 +46,10 @@ Component({
     left: '',
     right: '',
     bottom: '',
+    tempFilePath:"",
+    duration:"",
+    message:null,
+    messageresult:false,
   },
 
   /**
@@ -67,6 +71,31 @@ Component({
       that.setData({
         toView: 'msg_end_line'
       })
+    },
+
+
+    //点击语音图标
+    abcres() {
+
+        console.log(11111111111111)
+        this.triggerEvent('voiceMessage', {
+          msgid: "00" + Math.random(),
+          //发送方
+          jid: "customer",
+          //接收方
+          tojid: 'server',
+          timestamp: Date.parse((new Date())),
+          msg: this.data.message[0] ,
+          voice: this.data.tempFilePath,
+          duration: this.data.duration,
+          type: 'voice',
+          isread: '0',
+        })
+        this.setData({
+          toView: 'msg_end_line'
+        })
+      console.log(this.data)
+
     },
     /**
      * 初始化语音录制和播放的配置数据
@@ -105,7 +134,6 @@ Component({
         console.log(that.data.isClock)
         if (that.data.isClock) {
 
-          let timeTamp = Date.parse((new Date()));
           let message="";
           let filesize=0;
           let tempFilePath="";
@@ -131,27 +159,38 @@ Component({
                 filePath:tempFilePath,
                 encoding:"base64",
                 success:function (res) {
-                  app.request({
-                    url:'VoiceUpload',
+                  wx.request({
+                    url:'http://vop.baidu.com/server_api',
                     data: {
+                      token: "24.ec0e5f002958391ff73d902753b7f7d9.2592000.1683309049.282335-32042625",
                       format: 'pcm',
+                      cuid: 'baidu_workshop',
+                      channel: 1,
                       rate: 16000,
                       speech: res.data,
                       len: filesize
+                    },
+                    header:{
+                      'Content-Type':'application/json'
+
                     },
                     method:"POST",
                     success:function (res) {
                       console.log("语音接口返回")
                       console.log(res)
-                      message=res;
+                      message=res.data.result;
+                      that.setData({
+                        message: message,
+                        tempFilePath: tempFilePath,
+                        filesize: filesize,
+                        messageresult: true,
+                      })
                     },
                       fail: function (res) {
                           console.log("语音返回")
                           console.log(res)
-                          message=res;
+                          message=res.data.result;
                       }
-
-
                   })
                 }
               })
@@ -173,41 +212,8 @@ Component({
           //     }
           // );
 
-          this.triggerEvent('voiceMessage', {
-            msgid: "00" + Math.random(),
-            //发送方
-            jid: "customer",
-            //接收方
-            tojid: 'server',
-            timestamp: timeTamp,
-            msg:message ,
-            voice: res.tempFilePath,
-            duration: res.duration,
-            type: 'voice',
-            isread: '0',
-          })
 
 
-
-
-          that.setData({
-
-            toView: 'msg_end_line'
-          })
-
-
-          app.request({
-            url: 'user/info',
-            method: 'GET',
-            success(res) {
-              if(res.image){
-                wx.setStorageSync('info',res);
-                that.setData({
-                  head_img:res.image || '/icons/profiles/avatar.jpg',
-                });
-              }
-            }
-          });
 
         }
 
@@ -292,11 +298,10 @@ Component({
       this.handleStopPlayVoice(this);
       const options = {
         duration: 61000, //默认最长播放时长60秒
-        sampleRate: 44100,
+        sampleRate: 16000,
         numberOfChannels: 1,
-        encodeBitRate: 192000,
-        format: 'mp3',
-        frameSize: 50
+        encodeBitRate: 48000,
+        format: 'pcm',
       };
 
       if (this.data.isSpeaking) {
@@ -378,10 +383,18 @@ Component({
         })
       })
     },
-
-
-
   },
+  observers: { // 数据监听数据
+
+    'messageresult': function (newN1) { // 监听 n1 和 n2 的数据变化
+      console.log("监听 n1 和 n2 的数据变化")
+      if(newN1){
+        console.log("监听 n1 和 n2 的数据变化")
+        this.abcres()
+      }
+
+    }
+    },
 
   lifetimes: {
     attached(){
