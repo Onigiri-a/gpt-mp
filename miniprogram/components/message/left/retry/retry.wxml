@@ -1,0 +1,18 @@
+<!--components/message/left/retry/retry.wxml-->
+<view class="serverIcon">
+  <image src='/icons/profiles/workbench-bg.jpg'></image>
+</view>
+<view class="serverContent">
+  <view class="Angle">
+  </view>
+  <view class="Data">
+    <view class="leftMsg">
+      <view>机器人开小差了,请</view>
+      <view class="nav_button" bindtap="retry">
+        <icon class="inco-info" type="info"></icon>
+        <view class="title">点我重试</view>
+        <view class="arrow">></view>
+      </view>
+    </view>
+  </view>
+</view>

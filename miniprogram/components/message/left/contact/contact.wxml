@@ -1,0 +1,17 @@
+<!--components/message/right/contact/contact.wxml-->
+<view class="serverIcon">
+  <image src='/icons/profiles/workbench-bg.jpg'></image>
+</view>
+<view class="serverContent">
+
+  <view class="Data">
+    <view class="leftMsg nav_bk">
+      <view class="contact nav_button ">
+        <image src="/icons/customer.png"  class="icon"/>
+        <view class="title">{{text}}</view>
+        <image src="/icons/right1.png"  class="icon_right"/>
+        <button open-type='contact'></button>
+      </view>
+    </view>
+  </view>
+</view>

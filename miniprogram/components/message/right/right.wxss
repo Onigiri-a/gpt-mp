@@ -1,0 +1,23 @@
+
+.rightMsg {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2vh 2.5vw;
+  background-color: #149C89;
+  border-radius: 10rpx;
+  z-index: 10;
+  color: #FDFDFD;
+  font-weight: 400;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: 470rpx;
+}
+
+.rightMsg text{
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}

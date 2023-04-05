@@ -1,0 +1,82 @@
+<!--components/message/box/box.wxml 聊天框整体架构-->
+<view>
+  <view>
+    <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};' refresher-enabled="true" bindrefresherrefresh="loadMore" refresher-triggered="{{triggered}}">
+      <view class='scrollMsg'>
+        <block wx:key="key" wx:for='{{msgList}}' wx:for-index="index">
+          <!-- 单个消息1 客服发出（左） -->
+          <view class="server" wx:if="{{item.jid == 'server'}}" id='msg-{{index}}'>
+            <message-left-helper wx:if="{{item.type == 'helper'}}" left_item="{{item}}" bind:helper='onSend' class="message-left"></message-left-helper>
+            <message-left-text wx:if="{{item.type == 'text'}}" left_item="{{item}}" class="message-left"></message-left-text>
+              <message-left-banner wx:if="{{item.type == 'banner'}}" left_item="{{item}}" class="message-left"></message-left-banner>
+              <message-left-contact wx:if="{{item.type == 'contact'}}" left_item="{{item}}" class="message-left"></message-left-contact>
+              <message-left-pay wx:if="{{item.type == 'pay'}}" left_item="{{item}}" class="message-left"></message-left-pay>
+              <message-left-picture wx:if="{{item.type == 'picture'}}" left_item="{{item}}" class="message-left"></message-left-picture>
+              <message-left-sendMessage wx:if="{{item.type == 'sendMessage'}}" left_item="{{item}}" bind:send="onSend" class="message-left"></message-left-sendMessage>
+              <message-left-voice wx:if="{{item.type == 'voice'}}" left_item="{{item}}" class="message-left"></message-left-voice>
+              <message-left-retry wx:if="{{item.type == 'retry'}}" left_item="{{item}}" bind:retry="onRetry" class="message-left"></message-left-retry>
+          </view>
+          <!-- 单个消息2 用户发出（右） -->
+          <view class="customer" wx:else id='msg-{{index}}'>
+            <!-- 发起方的聊天框 -->
+            <view class="customerContent" >
+              <view class="Data">
+                <message-right-picture wx:if="{{item.type == 'picture'}}" right_item="{{item}}"></message-right-picture>
+                <message-right-text wx:if="{{item.type == 'text'}}" right_item="{{item}}"></message-right-text>
+                <message-right-voice wx:if="{{item.type == 'voice'}}" right_item="{{item}}"></message-right-voice>
+              </view>
+              <view class="AngleRight">
+              </view>
+            </view>
+            <box-right-user bindtap="shouquan" head_img="{{head_img}}"></box-right-user>
+          </view>
+        </block>
+      </view>
+      <view id="msg_end_line"></view>
+    </scroll-view>
+  </view>
+</view>
+　<block wx:if="{{!isVoice}}">
+<toolbar-text bind:voices="onVoices" disabled="{{disabled}}" bind:heightChange="onHeightChange" bind:send="onSend" bind:result="onResult"></toolbar-text>
+　</block>
+　<block wx:if="{{isVoice}}">
+<toolbar-voice bind:voices="onVoices" bind:voiceMessage="onVoiceMessage"  disabled="{{disabled}}"   bind:heightChange="onHeightChange" bind:send="onSend" bind:result="onResult" ></toolbar-voice>
+　</block>
+
+
+<!-- 授权弹窗 -->
+<view class="openAuth info-class" wx:if="{{show}}">
+    <view class="overlay" catchtap="overlay"></view>
+    <view class="detail-page">
+        <form catchsubmit="submit">
+            <view class="opt-top">
+                <view>
+                    <image src="{{icon}}" mode="heightFix"></image>
+                </view>
+                <view class="appNickName">{{appNickname}}</view>
+                <view>申请</view>
+            </view>
+            <view  class="opt-desc">获取您的头像和昵称</view>
+            <view  class="opt-body">
+                <view class="avatarUrl">
+                    <view class="title">头像</view>
+                    <button class="avatar" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+                        <image class="avatar" src="{{defaultAvatarUrl}}"  mode="heightFix"></image>
+                        <image class="jiantoua" src="/icons/right1.png" mode="heightFix"></image>
+                    </button>
+                </view>
+                <view class="nickName">
+                    <view class="title">昵称</view>
+                    <input type="nickname" name="nickName" class="nickNameInput" value="{{nickname}}"  placeholder="请输入昵称" style="background-color: unset;"/>
+                </view>
+
+            </view>
+            <view  class="opt-bottom">
+                <button class="btnAuth" focus="{{inputFocus}}" formType="submit">授权个人信息</button>
+                <!-- <view class="bot-desc">
+                    点击【授权个人信息】 表示您同意中山古镇灯都博览有限公司<text class="bot-navTo" bindtap="navTo" data-url="/pages/agreement/agreement?id=6">服务协议</text>，并接受中山古镇灯都博览有限公司<text class="bot-navTo" bindtap="navTo" data-url="/pages/agreement/agreement?id=3">隐私政策</text>，并允许中山古镇灯都博览有限公司通过您提供的上述信息与您联系。您可以随时取消订阅。
+                </view> -->
+            </view>
+        </form>
+    </view>
+</view>

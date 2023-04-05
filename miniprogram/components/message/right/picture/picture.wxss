@@ -1,0 +1,2 @@
+/* components/message/right/picture/picture.wxss */
+@import "../right.wxss";

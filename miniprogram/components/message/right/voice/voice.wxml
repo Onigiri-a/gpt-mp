@@ -1,0 +1,8 @@
+<!--components/message/right/voice/voice.wxml-->
+<wxs module="filters" src="../../../../utils/tool.wxs"></wxs>
+<view class="rightMsg">
+  <view bindtap='playVoice' data-item="{{item}}" data-index="{{index}}">
+    {{filters.toFix(right_item.duration / 1000)}}"
+    <image style='height:32rpx;width:32rpx;margin-right:28rpx;' src="{{imgs.yyxx}}" mode="aspectFit"></image>
+  </view>
+</view>

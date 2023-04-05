@@ -1,0 +1,4 @@
+<!--components/message/right/picture/picture.wxml-->
+<view class="rightMsg" wx:if="{{item.type == '2' }}">
+  <image class="image" src="{{item.msg}}" catchtap="picture" data-src="{{item.msg}}"></image>
+</view>

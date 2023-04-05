@@ -1,0 +1,19 @@
+/* components/message/right/pay/pay.wxss */
+@import "../left.wxss";
+.nav_button {
+  margin-top: 20rpx;
+  border: unset;
+  padding: 10rpx 20rpx 5rpx;
+  border-radius: unset;
+  width: 450rpx;
+  font-weight: bolder;
+  height: 45rpx;
+  background-color: #DEDEED;
+  border-radius: 40rpx;
+  overflow: hidden;
+}
+
+.leftMsg{
+  background-color: unset;
+}
+

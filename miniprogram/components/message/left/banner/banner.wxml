@@ -1,0 +1,11 @@
+<!--components/message/right/banner/banner.wxml-->
+<view class="serverIcon">
+    <image src='/icons/profiles/workbench-bg.jpg'></image>
+</view>
+<view class="serverContent">
+    <view class="Angle">
+    </view>
+    <view class="Data">
+        <text>components/message/right/banner/banner.wxml</text>
+    </view>
+</view>

@@ -1,0 +1,109 @@
+.leftMsg {
+  padding: 2vh 2.5vw;
+  background-color: #fff;
+  border-radius: 10rpx;
+  z-index: 10;
+  font-size: 14px;
+  color: #3B3B3B;
+  line-height: 20px;
+  font-weight: 400;
+  white-space: pre-wrap;
+  max-width: 470rpx;
+  overflow: hidden;
+}
+.leftMsg text{
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.nav_button {
+  margin-top: 20rpx;
+  border: 1px solid #666;
+  padding: 10rpx 20rpx 5rpx;
+  border-radius: 10rpx;
+  width: 440rpx;
+  font-weight: bolder;
+  height: 45rpx;
+}
+
+.inco-info{
+  float: left;
+}
+
+.title{
+  line-height: 43rpx;
+  float: left;
+}
+
+.arrow {
+  line-height: 42rpx;
+  float: right;
+  font-size: 30rpx;
+}
+
+.icon{
+  height: 45rpx;
+  width: 45rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.menu_title{
+  padding: 2vh 2.5vw;
+  background-color: #fff;
+}
+
+.icon_right{
+  height: 45rpx;
+  width: 45rpx;
+  float: right;
+}
+
+.Angle {
+  display: flex;
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+
+.AngleRight {
+  display: flex;
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #149C89;
+}
+
+.server {
+  display: flex;
+  padding: 2vh 11vw 2vh 2vw;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.serverIcon {
+  width: 10vw;
+  height: 10vw;
+}
+
+.serverIcon image {
+  width: 100%;
+  height: 100%;
+}
+
+.serverContent {
+  width: 71vw;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 9;
+}
+

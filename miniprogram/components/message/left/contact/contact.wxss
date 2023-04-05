@@ -1,0 +1,37 @@
+/* components/message/right/contact/contact.wxss */
+@import "../left.wxss";
+
+.contact {
+	position: relative;
+	text-align: left;
+	margin-top:0;
+}
+
+.contact button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	opacity: 0;
+}
+
+.nav_bk{
+  background: unset;
+}
+.nav_button{
+  margin-top: 20rpx;
+  border: unset;
+  padding: 10rpx 20rpx 5rpx;
+  border-radius: unset;
+  width: 400rpx;
+  font-weight: bolder;
+  height: 45rpx;
+  background-color: #DEDEED;
+  /* background-color: #149C89; */
+  border-radius: 40rpx;
+  letter-spacing:5rpx;
+  overflow: hidden;
+  
+}

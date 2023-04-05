@@ -1,0 +1,20 @@
+<!--components/toolbar/text/text.wxml-->
+<!-- 底部键盘,加号 -->
+<view class='inputRoom' style="bottom: {{inputBottom  + 'px'}}; height:{{inputInsideHeight + 'px'}}">
+<image src='{{imgs.icon_yy}}' catchtap="addSpeakMsg"  mode='widthFix'></image>
+  <!--<input bindconfirm='sendClick' adjust-position='{{false}}' value="{{inputVal}}" confirm-type='send' bindfocus='focus' bindblur='blur' bindinput="getInputVal" maxlength="2500" disabled="{{disabled}}"></input>-->
+  <textarea  class="weui-textarea"  bindconfirm='sendClick' adjust-position='{{false}}' value="{{inputVal}}" confirm-type='send' bindfocus='focus' bindblur='blur' bindlinechange="bindline" maxlength="2500" disabled="{{disabled}}" bindinput="getInputVal"  auto-height />
+
+  <navigator class="btn" id="js_btn" aria-role="button" bindtap='sendClick' mode='widthFix'>
+    发送
+  </navigator>
+</view>
+<!-- 点击加号图标 -->
+<view class="chat-camera" wx:if="{{camera}}">
+  <view wx:for="{{feature}}" wx:key="index" class="camera-feature" catchtap="featch" data-index="{{index}}">
+    <view class="feature-src">
+      <image src="{{item.src}}"></image>
+    </view>
+    <view class="feature-text">{{item.name}}</view>
+  </view>
+</view>

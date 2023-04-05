@@ -1,0 +1,45 @@
+@import "../left.wxss";
+
+.leftMsg {
+	background-color: transparent;
+	padding: 0 2.5vw;
+}
+
+.Angle {
+	opacity: 0;
+}
+
+.Lists {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.Lists .li {
+	width: 48%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	align-items: center;
+	background: #fff;
+	box-shadow: 0 2rpx 3rpx 0 rgba(63, 63, 63, 0.027);
+	margin-bottom: 15rpx;
+	border-radius: 12rpx;
+	overflow: hidden;
+
+}
+
+.Lists .li:nth-child(even) {
+	margin-left: 2%;
+}
+
+.Lists .li .item {
+	text-align: center;
+	padding: 18rpx 5rpx;
+	color: #222;
+	font-weight: 400;
+	font-size: 28rpx;
+}

@@ -1,0 +1,19 @@
+
+.btn {
+  width: 15vw;
+  /*height: 50%;*/
+  font-size: 25rpx;
+  line-height: 100%;
+  padding: 18rpx;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgb(7,193,96);
+}

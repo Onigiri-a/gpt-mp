@@ -1,0 +1,7 @@
+/* components/message/left/picture/picture.wxss */
+@import "../left.wxss";
+
+.image {
+    max-width: 71vw;
+    max-height: 71vh;
+}

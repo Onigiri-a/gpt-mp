@@ -1,0 +1,20 @@
+<!--components/message/right/sendMessage/sendMessage.wxml-->
+<view class="serverIcon">
+     <image src='/icons/profiles/workbench-bg.jpg'></image>
+   </view>
+   <view class="serverContent">
+
+     <view class="Data">
+       <view class="leftMsg nav_bk">
+         <view wx:if="{{left_item.msg.msg}}" class="menu_title">{{left_item.msg.msg}}</view>
+         <block wx:for='{{left_item.msg.data}}' wx:key="index">
+           <view class="nav_button" bindtap="menuClick" data-type="{{item.type}}" data-msg="{{item.msg}}">
+             <image src="{{item.icon}}" class="icon"/>
+             <view class="title">{{item.msg}}</view>
+             <image src="/icons/right1.png" class="icon_right"/>
+
+           </view>
+         </block>
+       </view>
+     </view>
+   </view>

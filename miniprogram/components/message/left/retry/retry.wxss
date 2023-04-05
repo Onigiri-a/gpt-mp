@@ -1,0 +1,2 @@
+/* components/message/left/retry/retry.wxss */
+@import "../left.wxss";

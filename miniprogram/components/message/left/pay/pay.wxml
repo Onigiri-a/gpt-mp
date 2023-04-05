@@ -1,0 +1,17 @@
+<!--components/message/right/pay/pay.wxml-->
+<view class="serverIcon">
+  <image src='/icons/profiles/workbench-bg.jpg'></image>
+</view>
+<view class="serverContent">
+  <view class="Data">
+    <view class="leftMsg nav_bk">
+      <block wx:for='{{left_item.msg.list}}' wx:key="index">
+        <view class="nav_button" bindtap="createOrder" data-id="{{item.id}}">
+          <image src="/icons/pay.png"  class="icon"/>
+          <view class="title">{{item.title}}</view>
+          <image src="/icons/right1.png"  class="icon_right"/>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

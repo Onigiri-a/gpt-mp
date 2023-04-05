@@ -1,0 +1,2 @@
+/* components/message/right/banner/banner.wxss */
+@import "../left.wxss";

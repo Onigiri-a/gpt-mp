@@ -1,0 +1,35 @@
+<!--components/toolbar/voice/voice.wxml-->
+<!-- 底部语音 -->
+<view  class='inputVoice' style="bottom: {{inputBottom  + 'px'}}">
+<image src='{{imgs.xjp}}' catchtap="addSpeakMsg"  mode='widthFix'></image>
+  <view class="touch" bindtouchstart="touchdown" bindtouchend="touchup" bindtouchmove="touchmove">长按
+    说话
+  </view>
+  <navigator class="btn" id="js_btn" aria-role="button" bindtap='sendClick' mode='widthFix'>
+    发送
+  </navigator>
+</view>
+<!-- 语音遮罩层 -->
+<view class="voice-mask" wx:if="{{mask}}">
+  <!--语音条 -->
+  <view class="voice-bar {{needCancel ? 'voiceDel' : ''}}">
+    <image src="{{imgs.sb_c}}" class="voice-volume {{needCancel ? 'voiceDel' : ''}}"></image>
+  </view>
+  <!-- 底部区域 -->
+  <view class="voice-send">
+    <!-- 取消图标 -->
+    <view class="voice-middle-wrapper">
+      <!-- 取消 -->
+      <view class="voice-left-wrapper">
+        <view class="voice-middle-inner close {{needCancel ? 'bigger' : ''}}">
+          <image src="{{imgs.voiceCancel}}" class="close-icon"></image>
+        </view>
+      </view>
+      <view class="send-tip {{needCancel ? sendTipNone:''}}">{{sendtip}}</view>
+    </view>
+    <!-- 底部语音显示 -->
+    <view class="mask-bottom">
+      <image src="{{imgs.ht}}"></image>
+    </view>
+  </view>
+</view>

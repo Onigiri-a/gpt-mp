@@ -1,0 +1,6 @@
+<!--components/box/right/user/user.wxml-->
+<view class="serverIcon">
+  <image src='{{head_img}}' bindtap="shouquan"></image>
+</view>
+
+

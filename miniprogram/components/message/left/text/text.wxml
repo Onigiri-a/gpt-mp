@@ -1,0 +1,16 @@
+<!--components/message/right/text/text.wxml-->
+<view class="serverIcon">
+    <image src='/icons/profiles/workbench-bg.jpg'></image>
+</view>
+<view class="serverContent">
+    <view class="Angle">
+    </view>
+    <view class="Data">
+        <view class="leftMsg">
+            <view>
+                <text selectable='true' user-select="true">{{left_item.msg}}</text>
+            </view>
+
+        </view>
+    </view>
+</view>

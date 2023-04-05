@@ -1,0 +1,20 @@
+{
+  "component": true,
+  "usingComponents": {
+    "box-right-user": "/components/box/right/user/user",
+    "message-right-text": "/components/message/right/text/text",
+    "message-right-picture": "/components/message/right/picture/picture",
+    "message-right-voice": "/components/message/right/voice/voice",
+    "message-left-banner": "/components/message/left/banner/banner",
+    "message-left-contact": "/components/message/left/contact/contact",
+    "message-left-pay": "/components/message/left/pay/pay",
+    "message-left-picture": "/components/message/left/picture/picture",
+    "message-left-sendMessage": "/components/message/left/sendMessage/sendMessage",
+    "message-left-retry": "/components/message/left/retry/retry",
+    "message-left-text": "/components/message/left/text/text",
+    "message-left-voice": "/components/message/left/voice/voice",
+    "message-left-helper": "/components/message/left/helper/helper",
+    "toolbar-text": "/components/toolbar/text/text",
+    "toolbar-voice": "/components/toolbar/voice/voice"
+  }
+}

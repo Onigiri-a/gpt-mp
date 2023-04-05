@@ -1,0 +1,4 @@
+<!--components/message/right/text/text.wxml-->
+<view class="rightMsg">
+  <text selectable='true' user-select="true">{{right_item.msg}}</text>
+</view>

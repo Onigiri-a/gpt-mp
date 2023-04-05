@@ -1,0 +1,16 @@
+<view class="serverIcon">
+	<image src='/icons/profiles/workbench-bg.jpg'></image>
+</view>
+<view class="serverContent">
+	<view class="Angle">
+	</view>
+	<view class="Data">
+		<view class="leftMsg Lists" wx:if="{{left_item}}">
+			<block wx:for="{{left_item.msg.lists}}" wx:key="key">
+				<view class="li" bindtap="Helper" data-item="{{item}}">
+					<view class="item">{{item.title}}</view>
+				</view>
+			</block>
+		</view>
+	</view>
+</view>
